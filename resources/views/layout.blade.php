@@ -46,7 +46,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                     <div class="full">
                         <div class="center-desk">
-                            <div class="logo"> <a href="#"><img src="images/logo.jpg" alt="logo"/></a> </div>
+                            <div class="logo"> <a href="{{ url('/home') }}"><img src="images/logo.jpg" alt="logo"/></a> </div>
                         </div>
                     </div>
                 </div>
@@ -55,17 +55,17 @@
                         <div class="limit-box">
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
-                                    <li class="active"> <a href="index.html">Главная</a> </li>
-                                    <li> <a href="#">Комнаты</a> </li>
-                                    <li> <a href="#">Тесты</a></li>
-                                    <li> <a href="#">Профиль</a> </li>
+                                    <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
+                                    <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
+                                    <li> <a href="{{ url('/tests') }}">Тесты</a></li>
+                                    <li> <a href="{{ url('/cabinet') }}">Профиль</a> </li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                    <li><a class="buy" href="#">Войти</a></li>
+                    <li><a class="buy" href="{{ url('/login') }}">Войти</a></li>
                 </div>
             </div>
         </div>
@@ -88,14 +88,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="contact">
                         <h3>Связаться с нами</h3>
                         <span>улица Политехничная, 6, Киев, 02000<br>
                         +987 654 3210</span>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="contact">
                         <h3>Дополнительно</h3>
                         <ul class="lik">
@@ -107,18 +107,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-                    <div class="contact">
-                        <h3>Сервис</h3>
-                        <ul class="lik">
-                            <li> <a href="#">Востановление данных</a></li>
-                            <li> <a href="#">Техническая поддержка</a></li>
-                            <li> <a href="#">Мобильный сервис</a></li>
-                            <li> <a href="#">Сетевые решения</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="contact">
                         <h3>Про *компания*</h3>
                         <span>Мы предлагаем сервис онлайн изучения английского языка с 2020 года</span>
