@@ -8,6 +8,7 @@
 /.idea/
 /.idea
 /.idea/*
+.idea/workspace.xml
 .env
 .env.backup
 .phpunit.result.cache
