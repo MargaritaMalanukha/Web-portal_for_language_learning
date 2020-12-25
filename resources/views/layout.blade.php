@@ -46,7 +46,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                     <div class="full">
                         <div class="center-desk">
-                            <div class="logo"> <a href="#"><img src="images/logo.jpg" alt="logo"/></a> </div>
+                            <div class="logo"> <a href="/home"><img src="images/logo.jpg" alt="logo"/></a> </div>
                         </div>
                     </div>
                 </div>
@@ -55,10 +55,10 @@
                         <div class="limit-box">
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
-                                    <li class="active"> <a href="index.html">Home</a> </li>
-                                    <li> <a href="#">Rooms</a> </li>
-                                    <li> <a href="#">Tests</a></li>
-                                    <li> <a href="#">Profile</a> </li>
+                                    <li class="active"> <a href="/home">Home</a> </li>
+                                    <li> <a href="/rooms">Rooms</a> </li>
+                                    <li> <a href="/tests">Tests</a></li>
+                                    <li> <a href="/cabinet">Profile</a> </li>
                                     <li class="mean-last"> <a href="#">signup</a> </li>
                                 </ul>
                             </nav>
