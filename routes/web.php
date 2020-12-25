@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 /*
  * Routes for authorization/registration.
  */
+
+Auth::routes();
 
 Route::get('/login', 'App\Http\Controllers\AuthController@login');
 Route::get('/register', 'App\Http\Controllers\AuthController@register');
