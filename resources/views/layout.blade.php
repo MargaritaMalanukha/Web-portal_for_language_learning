@@ -46,7 +46,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                     <div class="full">
                         <div class="center-desk">
-                            <div class="logo"> <a href="{{ url('/home') }}"><img src="images/logo.jpg" alt="logo"/></a> </div>
+                            <div class="logo"> <a href="#"><img src="images/logo.jpg" alt="logo"/></a> </div>
                         </div>
                     </div>
                 </div>
@@ -55,18 +55,17 @@
                         <div class="limit-box">
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
-                                    <li class="active"> <a href="{{ url('/home') }}">Home</a> </li>
-                                    <li> <a href="{{ url('/rooms') }}">Rooms</a> </li>
-                                    <li> <a href="{{ url('/tests')  }}">Tests</a></li>
-                                    <li> <a href="{{ url('/cabinet') }}">Profile</a> </li>
-                                    <li class="mean-last"> <a href="{{ url('/register') }}">signup</a> </li>
+                                    <li class="active"> <a href="index.html">Главная</a> </li>
+                                    <li> <a href="#">Комнаты</a> </li>
+                                    <li> <a href="#">Тесты</a></li>
+                                    <li> <a href="#">Профиль</a> </li>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                    <li><a class="buy" href="{{ url('/login') }}">Login</a></li>
+                    <li><a class="buy" href="#">Войти</a></li>
                 </div>
             </div>
         </div>
@@ -81,56 +80,54 @@
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <ul class="sociel">
-                        <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li> <a href="#"><i class="fa fa-youtube"></i></a></li>
                     </ul>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="contact">
-                        <h3>conatct us</h3>
-                        <span>123 Second Street Fifth Avenue,<br>
-                       Manhattan, New York<br>
+                        <h3>Связаться с нами</h3>
+                        <span>улица Политехничная, 6, Киев, 02000<br>
                         +987 654 3210</span>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="contact">
-                        <h3>ADDITIONAL LINKS</h3>
+                        <h3>Дополнительно</h3>
                         <ul class="lik">
-                            <li> <a href="#">About us</a></li>
-                            <li> <a href="#">Terms and conditions</a></li>
-                            <li> <a href="#">Privacy policy</a></li>
-                            <li> <a href="#">News</a></li>
-                            <li> <a href="#">Contact us</a></li>
+                            <li> <a href="#">О нас</a></li>
+                            <li> <a href="#">Услоия пользования</a></li>
+                            <li> <a href="#">Политика конфиденциальности</a></li>
+                            <li> <a href="#">Новости</a></li>
+                            <li> <a href="#">Связаться с нами</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="contact">
-                        <h3>service</h3>
+                        <h3>Сервис</h3>
                         <ul class="lik">
-                            <li> <a href="#"> Data recovery</a></li>
-                            <li> <a href="#">Computer repair</a></li>
-                            <li> <a href="#">Mobile service</a></li>
-                            <li> <a href="#">Network solutions</a></li>
-                            <li> <a href="#">Technical support</a></li>
+                            <li> <a href="#">Востановление данных</a></li>
+                            <li> <a href="#">Техническая поддержка</a></li>
+                            <li> <a href="#">Мобильный сервис</a></li>
+                            <li> <a href="#">Сетевые решения</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
                     <div class="contact">
-                        <h3>About lighten</h3>
-                        <span>Tincidunt elit magnis nulla facilisis. Dolor Sapien nunc amet ultrices, </span>
+                        <h3>Про *компания*</h3>
+                        <span>Мы предлагаем сервис онлайн изучения английского языка с 2020 года</span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="copyright">
-            <p>Copyright 2019 All Right Reserved By <a href="#">Free html Templates</a></p>
+            <p>Copyright 2020 All Right Reserved By KPI TEF</p>
         </div>
 
     </div>
