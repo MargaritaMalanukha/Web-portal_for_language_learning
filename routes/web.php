@@ -32,4 +32,4 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@logout');
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
 Route::get('/rooms', 'App\Http\Controllers\RoomController@index');
 Route::get('/tests', 'App\Http\Controllers\TestController@index');
-Route::get('/cabinet', 'App\Http\Controllers\CabinetController@index');
+Route::get('/profile', 'App\Http\Controllers\ProfileController@index');

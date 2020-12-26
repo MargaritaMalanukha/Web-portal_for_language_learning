@@ -33,9 +33,9 @@
 <!-- body -->
 <body class="main-layout">
 <!-- loader  -->
-<div class="loader_bg">
+<!--<div class="loader_bg">
     <div class="loader"><img src="images/loading.gif" alt="#" /></div>
-</div>
+</div>-->
 <!-- end loader -->
 <!-- header -->
 <header>
@@ -80,15 +80,16 @@
                                     <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
                                     <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
                                     <li> <a href="{{ url('/tests') }}">Тесты</a></li>
-                                    <li> <a href="{{ url('/cabinet') }}">Профиль</a> </li>
+                                    <li> <a href="{{ url('/profile') }}">Профиль</a> </li>
                                     <li> <a href="{{ url('/logout') }}">Выйти</a> </li>
                                     @else
-                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                                            <li><a class="buy" href="{{ url('/login') }}">Войти</a></li>
-                                        </div>
-                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                                            <li><a class="buy" href="{{ url('/register') }}">Регистрация</a></li>
-                                        </div>
+                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                                <li><a class="buy" href="{{ url('/login') }}">Войти</a></li>
+                                            </div>
+                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                                <li><a class="buy" href="{{ url('/register') }}">Регистрация</a></li>
+                                            </div>
+
                                     @endif
                                 </ul>
                             </nav>
