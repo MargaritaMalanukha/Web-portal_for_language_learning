@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 //todo 1)оформление подписки
-//todo 2)отредактировать картинки в profile
 //todo 3)для native'а вместо подписки сделать вывод/изменение номера карты.
 //todo 4)не забыть отредактировать profile template когда будут добавлены видеозвонки
 class ProfileController extends Controller
@@ -27,7 +26,7 @@ class ProfileController extends Controller
         return view('profile.profile')
             ->with('email', $email)
             ->with('level', $level)
-            ->with('userType', $usertype)
+            ->with('usertype', $usertype)
             ->with('subscriptionType', $subscriptionType);
     }
 
