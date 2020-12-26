@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('usertype');
             $table->unsignedBigInteger('level');
             $table->unsignedBigInteger('subscriptionType');
+            $table->unsignedInteger('creditCardNum')->nullable()->default(null);
 
             //keys
             $table->foreign('usertype')->references('id')->on('user_types');
