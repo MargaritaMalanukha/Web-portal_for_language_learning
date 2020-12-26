@@ -18,6 +18,7 @@ class RegistrationController extends Controller
     //todo 3)установить ворота (is_Authorized под каждым рутом)
     //todo 4)пофиксить фронт.
     //todo 5)дебаг названия страницы без добавления в сессию.(? нету русской версии)
+    //todo 6)удалить админа из списка userType.
 
     public function show_registration(Request $request) {
         $user_types = User_type::all();
