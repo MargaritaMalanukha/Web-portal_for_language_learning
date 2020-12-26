@@ -17,7 +17,6 @@ class CreateLanguageLevelsTable extends Migration
             $table->id()->autoIncrement();
             $table->string('description')->unique();
             $table->unsignedInteger('numericValue')->unique();
-            $table->timestamps();
         });
     }
 

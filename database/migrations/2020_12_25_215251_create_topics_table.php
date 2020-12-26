@@ -17,7 +17,6 @@ class CreateTopicsTable extends Migration
             $table->id()->autoIncrement();
             $table->string('description')->unique();
             $table->unsignedBigInteger('relatedLevel');
-            $table->timestamps();
 
             //keys
             $table->foreign('relatedLevel')->references('id')->on('language_levels');
