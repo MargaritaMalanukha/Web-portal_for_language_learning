@@ -17,9 +17,13 @@ use Illuminate\Support\Facades\Route;
  * Routes for authorization/registration.
  */
 
-Route::get('/login', 'App\Http\Controllers\AuthController@login');
-Route::get('/register', 'App\Http\Controllers\AuthController@register');
-Route::get('/logout', 'App\Http\Controllers\AuthController@logout');
+Route::get('/register', 'App\Http\Controllers\Auth\RegistrationController@show_registration');
+Route::post('/register', 'App\Http\Controllers\Auth\RegistrationController@register');
+
+Route::get('/login', 'App\Http\Controllers\Auth\AuthController@show_login');
+Route::post('/login', 'App\Http\Controllers\Auth\AuthController@login');
+
+Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@logout');
 
 /*
  * Categories routes.
