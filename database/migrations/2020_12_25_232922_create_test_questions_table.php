@@ -23,7 +23,6 @@ class CreateTestQuestionsTable extends Migration
             $table->string('answer4');
             $table->unsignedInteger('correctAnswerNumber');
             $table->unsignedBigInteger('relatedTopic');
-            $table->timestamps();
 
             //keys
             $table->foreign('relatedTopic')->references('id')->on('topics');

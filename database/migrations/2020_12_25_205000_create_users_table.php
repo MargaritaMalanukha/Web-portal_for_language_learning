@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             //keys
             $table->foreign('usertype')->references('id')->on('user_types');
             $table->foreign('level')->references('id')->on('language_levels');
-            $table->foreign('subscriptionType')->references('id')->on('subscrition_types');
+            $table->foreign('subscriptionType')->references('id')->on('subscription_types');
         });
     }
 
