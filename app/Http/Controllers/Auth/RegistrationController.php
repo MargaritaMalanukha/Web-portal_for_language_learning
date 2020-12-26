@@ -13,10 +13,11 @@ use Illuminate\Http\Request;
 class RegistrationController extends Controller
 {
 
-    //todo 4)bugfix регистрации
-    //todo 5)Authorization::authenticate.
-    //todo 6)Настройки сессии.
-    //todo 7)front bugfix.
+    //todo 1)проверить всё ли есть в сессии
+    //todo 2)протестировать авторизацию\регистрацию
+    //todo 3)установить ворота (is_Authorized под каждым рутом)
+    //todo 4)пофиксить фронт.
+    //todo 5)дебаг названия страницы без добавления в сессию.(? нету русской версии)
 
     public function show_registration(Request $request) {
         $user_types = User_type::all();

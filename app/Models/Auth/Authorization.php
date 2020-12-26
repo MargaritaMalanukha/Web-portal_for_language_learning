@@ -2,6 +2,7 @@
 
 namespace App\Models\Auth;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -13,19 +14,28 @@ class Authorization extends Model
     public static function validate(Request $request)
     {
         $request->validate([
-            'email' => 'required|max:255|unique:users,email|email:rfc,dns',
+            'email' => 'required|max:255|email:rfc,dns',
             'password' => 'required|max:255',
         ]);
     }
 
     public static function authenticate(Request $request)
     {
-        $user = self::findByEmail($request->input('email'));
-        //todo find user by email and check his password, if it's correct return with true.
+        $user = User::findByEmail($request->input('email'));
+        if ($user == null || $user->password != $request->input('password')) {
+            return false;
+        }
+        self::insertAllIntoSession($user, $request);
+        return true;
     }
 
-    public static function findByEmail($input)
+    private static function insertAllIntoSession($user, Request $request)
     {
-
+        $request->session()->put('name', $user->name);
+        $request->session()->put('email', $user->email);
+        $request->session()->put('password', $user->password);
+        $request->session()->put('usertype', $user->usertype);
+        $request->session()->put('level', $user->level);
+        $request->session()->put('subscriptionType', $user->subscriptionType);
     }
 }
