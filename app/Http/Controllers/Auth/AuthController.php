@@ -9,12 +9,17 @@ use Illuminate\Http\Request;
 class AuthController extends Controller
 {
 
-    public function show_login() {
+    public function show_login(Request $request) {
+        $request->session()->put('page_caption', 'LOGIN');
         return view('auth.login');
     }
 
-    public function login() {
-        Authorization::validate();
+    public function login(Request $request) {
+        Authorization::validate($request);
+        $data_is_correct = Authorization::authenticate($request);
+        if (!$data_is_correct)
+            return view('auth.login')->with('error', 'Вы ввели неправильный электронный адрес/пароль');
+        return redirect('/home');
     }
 
     public function logout(Request $request) {

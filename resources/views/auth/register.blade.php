@@ -24,10 +24,9 @@
                             </div>
 
                             <div class="col-md-12">
-                                <select name="userType" style="display: none;">
-                                    <option value="native">Ответ не выбран</option>
-                                    <option value="native">Да</option>
-                                    <option value="user">Нет</option>
+                                <select name="usertype" style="display: none;">
+                                    <option value="native">Native</option>
+                                    <option value="user">Ученик</option>
                                 </select>
                             </div>
                             <div class="col-md-12">

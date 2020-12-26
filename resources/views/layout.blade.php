@@ -67,7 +67,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                     <div class="full">
                         <div class="center-desk">
-                            <div class="logo"> <a href="{{ url('/home') }}"><img src="images/logo.jpg" alt="logo"/></a> </div>
+                            <div class="logo"> <a href="{{ url('/home') }}"><img src="{{ asset('images/logo.svg') }}" alt="logo"/></a> </div>
                         </div>
                     </div>
                 </div>
@@ -76,27 +76,42 @@
                         <div class="limit-box">
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
+                                    @if(session()->has('password'))
                                     <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
                                     <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
                                     <li> <a href="{{ url('/tests') }}">Тесты</a></li>
                                     <li> <a href="{{ url('/cabinet') }}">Профиль</a> </li>
+                                    <li> <a href="{{ url('/logout') }}">Выйти</a> </li>
+                                    @else
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                            <li><a class="buy" href="{{ url('/login') }}">Войти</a></li>
+                                        </div>
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                            <li><a class="buy" href="{{ url('/register') }}">Регистрация</a></li>
+                                        </div>
+                                    @endif
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-                    <li><a class="buy" href="{{ url('/login') }}">Войти</a></li>
-                </div>
             </div>
         </div>
     </div><!-- end header inner -->
+
     <div class="brand_color">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="titlepage">
-                        <h2>About</h2>
+
+                        <h2>@if(session()->has('page_caption'))
+                                <h2>{{ session('page_caption') }}</h2>
+                            @else
+                                <h2>About</h2>
+                            @endif
+                        </h2>
+
                     </div>
                 </div>
             </div>
