@@ -38,4 +38,10 @@ class Authorization extends Model
         $request->session()->put('level', $user->level);
         $request->session()->put('subscriptionType', $user->subscriptionType);
     }
+
+    public static function is_authenticated(Request $request)
+    {
+        if ($request->session()->has('email')) return true;
+        return false;
+    }
 }

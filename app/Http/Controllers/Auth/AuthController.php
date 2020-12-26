@@ -11,6 +11,7 @@ class AuthController extends Controller
 
     public function show_login(Request $request) {
         $request->session()->put('page_caption', 'LOGIN');
+
         return view('auth.login');
     }
 
@@ -18,7 +19,7 @@ class AuthController extends Controller
         Authorization::validate($request);
         $data_is_correct = Authorization::authenticate($request);
         if (!$data_is_correct)
-            return view('auth.login')->with('error', 'Вы ввели неправильный электронный адрес/пароль');
+            return redirect()->back()->withErrors('Неправильно введен логин/пароль!');
         return redirect('/home');
     }
 

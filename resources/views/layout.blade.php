@@ -119,7 +119,7 @@
     </div>
 </header>
 <!-- end header -->
-@yield('content'))
+@yield('content')
 <!-- footer -->
 <footer>
     <div class="footer">
