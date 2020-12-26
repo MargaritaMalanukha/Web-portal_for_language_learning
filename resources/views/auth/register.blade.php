@@ -25,12 +25,17 @@
 
                             <div class="col-md-12">
                                 <select name="usertype" style="display: none;">
-                                    <option value="native">Native</option>
-                                    <option value="user">Ученик</option>
+                                    @foreach($user_types as $user_type)
+                                        <option value="{{ $user_type->description }}">{{ $user_type->description }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="col-md-12">
-                                <input class="form-control" placeholder="Предполагаемый уровень языка" type="text" name="level">
+                                <select name="level" style="display: none;">
+                                    @foreach($levels as $level)
+                                        <option value="{{ $level->description }}">{{ $level->description }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="col-md-12">

@@ -3,6 +3,8 @@
 namespace App\Models\Auth;
 
 use App\Models\Language_level;
+use App\Models\Subscription_type;
+use App\Models\User_type;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -19,7 +21,7 @@ class Registration extends Model
             'email' => 'required|max:255|unique:users,email|email:rfc,dns',
             'password' => 'required|max:255',
             'repeat-password' => 'required|max:255',
-            'userType' => 'required',
+            'usertype' => 'required',
             'level' => 'required'
         ]);
         if ($request->input('password') != $request->input('repeat-password')) {
@@ -28,13 +30,16 @@ class Registration extends Model
     }
 
     public static function create(Request $request) {
-        $id = Language_level::findByDescription($request);
+        $subscription_id = Subscription_type::findByDescription('none');
+        $usertype_id = User_type::findByDescription($request->input('usertype'));
+        $level_id = Language_level::findByDescription($request->input('level'));
         DB::table('users')->insert([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => $request->input('password'),
-            'usertype' => $request->input('usertype'), //когда будут добавлены типы пользователя, изменить
-            'level' => $id
+            'usertype' => $usertype_id,
+            'level' => $level_id,
+            'subscriptionType' => $subscription_id
         ]);
     }
 
@@ -43,7 +48,8 @@ class Registration extends Model
         $request->session()->put('name', $request->input('name'));
         $request->session()->put('email', $request->input('email'));
         $request->session()->put('password', $request->input('password'));
-        $request->session()->put('usertype', $request->input('usertype'));
-        $request->session()->put('level', $request->input('level'));
+        $request->session()->put('usertype', User_type::findByDescription($request->input('usertype')));
+        $request->session()->put('level', Language_level::findByDescription($request->input('level')));
+        $request->session()->put('subscriptionType', Subscription_type::findByDescription('none'));
     }
 }

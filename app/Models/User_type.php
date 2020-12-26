@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class Language_level extends Model
+class User_type extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'description', 'numericValue'];
+    protected $fillable = ['id', 'description'];
 
     public static function findByDescription($description)
     {
-        return DB::table('language_levels')->where('description', '=', $description)->first()->id;
+        return DB::table('user_types')->where('description', '=', $description)->first()->id;
     }
 }
