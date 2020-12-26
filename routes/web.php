@@ -33,3 +33,13 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index');
 Route::get('/rooms', 'App\Http\Controllers\RoomController@index');
 Route::get('/tests', 'App\Http\Controllers\TestController@index');
 Route::get('/profile', 'App\Http\Controllers\ProfileController@index');
+
+/*
+ * Profile routes.
+ */
+
+Route::get('/profile/edit_name', 'App\Http\Controllers\ProfileController@edit_name');
+Route::post('/profile/edit_name', 'App\Http\Controllers\ProfileController@update_name');
+Route::get('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@edit_email_password');
+Route::post('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@update_email_password');
+Route::get('/profile/premium', 'App\Http\Controllers\ProfileController@premium');

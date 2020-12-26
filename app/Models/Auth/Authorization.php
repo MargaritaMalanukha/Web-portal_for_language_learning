@@ -14,8 +14,8 @@ class Authorization extends Model
     public static function validate(Request $request)
     {
         $request->validate([
-            'email' => 'required|max:255|email:rfc,dns',
-            'password' => 'required|max:255',
+            'email' => 'required|max:30|email:rfc,dns',
+            'password' => 'required|max:20',
         ]);
     }
 
@@ -31,6 +31,7 @@ class Authorization extends Model
 
     private static function insertAllIntoSession($user, Request $request)
     {
+        $request->session()->put('id', $user->id);
         $request->session()->put('name', $user->name);
         $request->session()->put('email', $user->email);
         $request->session()->put('password', $user->password);

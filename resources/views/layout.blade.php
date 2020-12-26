@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                             <div class="top-box">
-                                <p>long established fact that a reader will be </p>
+                                <p>take your English to the next level with the best native speakers </p>
                             </div>
                         </div>
                     </div>
