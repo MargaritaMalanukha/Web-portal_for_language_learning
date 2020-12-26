@@ -40,7 +40,28 @@
 <!-- header -->
 <header>
     <!-- header inner -->
-    <div class="header">
+        <div class="header">
+            <div class="head_top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="top-box">
+                                <ul class="sociel_link">
+                                    <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="top-box">
+                                <p>long established fact that a reader will be </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
@@ -70,11 +91,22 @@
             </div>
         </div>
     </div><!-- end header inner -->
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>About</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </header>
 <!-- end header -->
 @yield('content'))
 <!-- footer -->
-<footr>
+<footer>
     <div class="footer">
         <div class="container">
             <div class="row">
@@ -100,7 +132,7 @@
                         <h3>Дополнительно</h3>
                         <ul class="lik">
                             <li> <a href="#">О нас</a></li>
-                            <li> <a href="#">Услоия пользования</a></li>
+                            <li> <a href="#">Условия пользования</a></li>
                             <li> <a href="#">Политика конфиденциальности</a></li>
                             <li> <a href="#">Новости</a></li>
                             <li> <a href="#">Связаться с нами</a></li>
@@ -120,7 +152,7 @@
         </div>
 
     </div>
-</footr>
+</footer>
 <!-- end footer -->
 <!-- Javascript files-->
 <script src="/js/jquery.min.js"></script>
