@@ -16,37 +16,48 @@ class ProfileController extends Controller
     public function index(Request $request) {
         if (!Authorization::is_authenticated($request)) return redirect('/login');
 
-        $email = User::reduceEmail($request->session()->get('email'));
+        $user = User::findById($request->session()->get('id'));
 
-        $level = Language_level::findDescriptionById($request->session()->get('level'));
-        $usertype = User_type::findDescriptionById($request->session()->get('usertype'));
-        $subscriptionType = Subscription_type::findDescriptionById($request->session()->get('subscriptionType'));
+        $email = User::reduceEmail($user->email);
+        $level = Language_level::findDescriptionById($user->level);
+        $is_native = User_type::isUserIsSetType($user->usertype, 'native');
+        $subscriptionType = Subscription_type::findDescriptionById($user->subscriptionType);
+        $creditCardNum = ($user->creditCardNum == null) ? 'none' : User::reduceCreditCardNum($user->creditCardNum);
         return view('profile.profile')
             ->with('email', $email)
             ->with('level', $level)
-            ->with('usertype', $usertype)
-            ->with('subscriptionType', $subscriptionType);
+            ->with('is_native', $is_native)
+            ->with('subscriptionType', $subscriptionType)
+            ->with('user', $user)
+            ->with('creditCardNum', $creditCardNum);
     }
 
     public function edit_name(Request $request) {
         if (!Authorization::is_authenticated($request)) return redirect('/login');
 
-        return view('profile.edit_name');
+        $user = User::findById($request->session()->get('id'));
+        return view('profile.edit_name')
+            ->with('name', $user->name);
     }
 
     public function update_name(Request $request) {
         $request->validate([
             'name' => 'required|max:20'
         ]);
-        User::updateName($request->input('name'), $request->session()->get('name'));
-        $request->session()->put('name', $request->input('name'));
+
+        $user = User::findById($request->session()->get('id'));
+        User::updateName($request->input('name'), $user->name);
+
         return redirect('/profile');
     }
 
     public function edit_email_password(Request $request) {
         if (!Authorization::is_authenticated($request)) return redirect('/login');
 
-        return view('profile.edit_email_password');
+        $user = User::findById($request->session()->get('id'));
+
+        return view('profile.edit_email_password')
+            ->with('email', $user->email);
     }
 
     public function update_email_password(Request $request) {
@@ -56,23 +67,21 @@ class ProfileController extends Controller
             'new-password' => 'max:20',
             'repeat-password' => 'max:20'
         ]);
-        User::updateEmail($request->input('email'), $request->session()->get('id'));
+        $user = User::findById($request->session()->get('id'));
+        User::updateEmail($request->input('email'), $user->id);
 
         if ($request->input('old-password') != null
             && $request->input('new-password') != null
             && $request->input('repeat-password') != null) {
 
-            if ($request->session()->get('password') != $request->input('old-password')){
+            if ($user->password != $request->input('old-password')){
                 throw ValidationException::withMessages(['old-password' => 'Неправильный старый пароль!']);
             }
             if ($request->input('new-password') != $request->input('repeat-password')){
                 throw ValidationException::withMessages(['repeat-password' => 'Пароль не подтверждён!']);
             }
-            User::updatePassword($request->input('new-password'), $request->session()->get('id'));
-            $request->session()->put('password', $request->input('new-password'));
+            User::updatePassword($request->input('new-password'), $user->id);
         }
-
-        $request->session()->put('email', $request->input('email'));
 
         return redirect('/profile');
     }
@@ -80,6 +89,17 @@ class ProfileController extends Controller
     public static function premium(Request $request) {
         if (!Authorization::is_authenticated($request)) return redirect('/login');
 
-        return view('profile.premium');
+        $user = User::findById($request->session()->get('id'));
+        $is_user = User_type::isUserIsSetType($user->usertype, 'common');
+        $subscription_types = Subscription_type::all();
+
+        return view('profile.premium')
+            ->with('is_user', $is_user)
+            ->with('subscriptions', $subscription_types)
+            ->with('creditCardNum', $user->creditCardNum);
+    }
+
+    public static function update_premium(Request $request) {
+        return redirect('/home');
     }
 }

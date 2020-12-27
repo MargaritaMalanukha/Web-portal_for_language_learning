@@ -2,6 +2,7 @@
 
 @section('content')
 
+    @if($is_user)
     <div class="service">
         <div class="container">
             <div class="row">
@@ -14,37 +15,66 @@
             </div>
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="service-box">
-                        <i><img src="icon/service1.png"/></i>
-                        <h3>Fast service</h3>
-                        <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                    <form class="service-box" method="POST" action="{{ url('/profile/premium/', $subscriptions[0]) }}">
+                        <i><img src="{{ asset('icon/no-stopping.svg') }}"/></i>
+                        <h3>Стандартная подписка</h3>
+                        <p>бесплатно <br/> безлимитные комнаты и тесты  </p>
                         <div class="col-md-12" style="margin-top: 20px">
                             <button class="send" type="submit">Приобрести</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="service-box">
-                        <i><img src="icon/service2.png"/></i>
-                        <h3>Secure payments</h3>
-                        <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                    <form class="service-box" method="POST" action="/profile/premium/{{$subscriptions[1]->id}}">
+                        <i><img src="{{ asset('icon/star.svg') }}"/></i>
+                        <h3>Месячная подписка</h3>
+                        <p>150 грн/месяц<br> + безлимитное общение с native</p>
                         <div class="col-md-12" style="margin-top: 20px">
                             <button class="send" type="submit">Приобрести</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                    <div class="service-box">
-                        <i><img src="icon/service3.png"/></i>
-                        <h3>Expert team</h3>
-                        <p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea </p>
+                    <form class="service-box" method="POST" action="{{ url('/profile/premium/', $subscriptions[2]) }}">
+                        <i><img src="{{ asset('icon/crown.svg') }}"/></i>
+                        <h3>Годовая подписка</h3>
+                        <p>1000 грн/год <br> + безлимитное общение с native</p>
                         <div class="col-md-12" style="margin-top: 20px">
                             <button class="send" type="submit">Приобрести</button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    @else
+
+        <div class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <form class="main_form" action="{{ url('/profile/premium') }}" method="POST">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input class="form-control" placeholder="Введите номер карты для ежемесячного получения платы за конференции"
+                                           type="text" name="creditCardNum" @if($creditCardNum != null) value="{{ $creditCardNum }} @endif">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <button class="send" type="submit">Отправить</button>
+                                </div>
+                                @foreach($errors->all() as $error)
+                                    {{ $error }}<br/>
+                                @endforeach
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    @endif
 
 @endsection

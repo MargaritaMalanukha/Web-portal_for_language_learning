@@ -43,3 +43,4 @@ Route::post('/profile/edit_name', 'App\Http\Controllers\ProfileController@update
 Route::get('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@edit_email_password');
 Route::post('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@update_email_password');
 Route::get('/profile/premium', 'App\Http\Controllers\ProfileController@premium');
+Route::post('/profile/premium/{subscriptionType?}', ['as' => '/profile/premium', 'uses' => 'App\Http\Controllers\ProfileController@update_premium']);

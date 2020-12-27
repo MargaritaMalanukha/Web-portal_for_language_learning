@@ -43,15 +43,4 @@ class Registration extends Model
             'subscriptionType' => $subscription_id
         ]);
     }
-
-    public static function insertAllIntoSession(Request $request)
-    {
-        $request->session()->put('id', User::findByEmail($request->input('email'))->id);
-        $request->session()->put('name', $request->input('name'));
-        $request->session()->put('email', $request->input('email'));
-        $request->session()->put('password', $request->input('password'));
-        $request->session()->put('usertype', User_type::findByDescription($request->input('usertype')));
-        $request->session()->put('level', Language_level::findByDescription($request->input('level')));
-        $request->session()->put('subscriptionType', Subscription_type::findByDescription('none'));
-    }
 }

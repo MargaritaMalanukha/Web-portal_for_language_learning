@@ -11,7 +11,7 @@ class User extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'name', 'email', 'password', 'usertype', 'level', 'subscriptionType'];
+    protected $fillable = ['id', 'name', 'email', 'password', 'usertype', 'level', 'subscriptionType', 'creditCardNum'];
 
     public static function findByEmail($email) {
         return DB::table('users')->where('email', '=', $email)->first();
@@ -25,7 +25,7 @@ class User extends Model
 
     public static function reduceEmail($email) {
         if (strlen($email) < 14) return '***' . $email;
-        return '***' . substr($email, -14);
+        return '****' . substr($email, -14);
     }
 
     public static function updateEmail($newEmail, $id)
@@ -40,5 +40,15 @@ class User extends Model
         DB::table('users')->where('id', '=', $id)->update([
             'password' => $newPassword
         ]);
+    }
+
+    public static function findById($id)
+    {
+        return DB::table('users')->where('id', '=', $id)->first();
+    }
+
+    public static function reduceCreditCardNum($creditCardNum)
+    {
+        return '****' . substr($creditCardNum, -4);
     }
 }

@@ -11,7 +11,7 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
-                                <input class="form-control" value="{{ session('email') }}" type="text" name="email">
+                                <input class="form-control" value="{{ $email }}" type="text" name="email">
                             </div>
                             <div class="col-md-12">
                                 <input class="form-control" placeholder="Введите старый пароль" type="text" name="old-password">

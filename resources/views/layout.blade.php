@@ -76,7 +76,7 @@
                         <div class="limit-box">
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
-                                    @if(session()->has('password'))
+                                    @if(session()->has('id'))
                                     <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
                                     <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
                                     <li> <a href="{{ url('/tests') }}">Тесты</a></li>

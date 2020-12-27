@@ -11,7 +11,7 @@
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
-                                <input class="form-control" value="{{ session('name') }}" type="text" name="name">
+                                <input class="form-control" value="{{ $name }}" type="text" name="name">
                             </div>
 
                             <div class="col-md-12">
