@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    public function index(Request $request) {
-        if (!Authorization::is_authenticated($request)) return redirect('/login');
-
-        return view('tests');
+    public function index() {
+        return view('testing_subsystem.test_Stage1');
     }
 }
