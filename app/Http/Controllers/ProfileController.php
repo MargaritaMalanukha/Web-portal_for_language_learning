@@ -11,8 +11,6 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
 //todo 1)оформление подписки
-//todo 3)для native'а вместо подписки сделать вывод/изменение номера карты.
-//todo 4)не забыть отредактировать profile template когда будут добавлены видеозвонки
 class ProfileController extends Controller
 {
     public function index(Request $request) {
@@ -77,5 +75,11 @@ class ProfileController extends Controller
         $request->session()->put('email', $request->input('email'));
 
         return redirect('/profile');
+    }
+
+    public static function premium(Request $request) {
+        if (!Authorization::is_authenticated($request)) return redirect('/login');
+
+        return view('profile.premium');
     }
 }

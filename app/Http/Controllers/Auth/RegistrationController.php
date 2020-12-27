@@ -11,9 +11,6 @@ use Illuminate\Http\Request;
 class RegistrationController extends Controller
 {
 
-    //todo 4)пофиксить фронт.
-    //todo 5)дебаг названия страницы без добавления в сессию.(? нету русской версии)
-
     public function show_registration(Request $request) {
         $user_types = User_type::allWithoutAdmin();
         $levels = Language_level::all();
