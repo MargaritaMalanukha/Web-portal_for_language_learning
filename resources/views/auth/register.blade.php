@@ -24,14 +24,14 @@
                             </div>
 
                             <div class="col-md-12">
-                                <select name="usertype" style="display: none;">
+                                <select name="usertype">
                                     @foreach($user_types as $user_type)
-                                        <option value="{{ $user_type->description }}">{{ $user_type->description }}</option>
+                                        <option value="{{ $user_type->descriptionRU }}">{{ $user_type->descriptionRU }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-12">
-                                <select name="level" style="display: none;">
+                                <select name="level">
                                     @foreach($levels as $level)
                                         <option value="{{ $level->description }}">{{ $level->description }}</option>
                                     @endforeach

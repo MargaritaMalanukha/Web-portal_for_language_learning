@@ -10,7 +10,7 @@ class User_type extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'description'];
+    protected $fillable = ['id', 'description', 'descriptionRU'];
 
     public static function findByDescription($description)
     {

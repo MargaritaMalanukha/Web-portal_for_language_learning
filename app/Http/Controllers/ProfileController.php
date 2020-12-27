@@ -21,7 +21,7 @@ class ProfileController extends Controller
         $email = User::reduceEmail($user->email);
         $level = Language_level::findDescriptionById($user->level);
         $is_native = User_type::isUserIsSetType($user->usertype, 'native');
-        $subscriptionType = Subscription_type::findDescriptionById($user->subscriptionType);
+        $subscriptionType = Subscription_type::findDescriptionRUById($user->subscriptionType);
         $creditCardNum = ($user->creditCardNum == null) ? 'none' : User::reduceCreditCardNum($user->creditCardNum);
         return view('profile.profile')
             ->with('email', $email)
@@ -99,7 +99,22 @@ class ProfileController extends Controller
             ->with('creditCardNum', $user->creditCardNum);
     }
 
-    public static function update_premium(Request $request) {
-        return redirect('/home');
+    public static function updatePremium(Request $request, $description) {
+        if (!Authorization::is_authenticated($request)) return redirect('/login');
+
+        $user = User::findById($request->session()->get('id'));
+
+        $subscription_id = Subscription_type::findByDescription($description);
+        User::updateSubscriptionType($subscription_id, $user->id);
+
+        return view('profile.subscription_changed');
+    }
+
+    public static function changeCreditCard(Request $request) {
+        $request->validate([
+            'creditCardNum' => 'required|numeric|digits:16'
+        ]);
+        User::updateCreditCardNum($request->session()->get('id'), $request->input('creditCardNum'));
+        return redirect('/profile');
     }
 }

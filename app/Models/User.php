@@ -51,4 +51,18 @@ class User extends Model
     {
         return '****' . substr($creditCardNum, -4);
     }
+
+    public static function updateCreditCardNum($id, $creditCardNum)
+    {
+        DB::table('users')->where('id', '=', $id)->update([
+            'creditCardNum' => $creditCardNum
+        ]);
+    }
+
+    public static function updateSubscriptionType($subscription_id, $id)
+    {
+        DB::table('users')->where('id', '=', $id)->update([
+            'subscriptionType' => $subscription_id
+        ]);
+    }
 }
