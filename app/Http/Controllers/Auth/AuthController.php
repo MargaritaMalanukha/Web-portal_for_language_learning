@@ -10,8 +10,6 @@ class AuthController extends Controller
 {
 
     public function show_login(Request $request) {
-        $request->session()->put('page_caption', 'LOGIN');
-
         return view('auth.login');
     }
 

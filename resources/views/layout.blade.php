@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                             <div class="top-box">
-                                <p>long established fact that a reader will be </p>
+                                <p>take your English to the next level with the best native speakers </p>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                         <div class="limit-box">
                             <nav class="main-menu">
                                 <ul class="menu-area-main">
-                                    @if(session()->has('password'))
+                                    @if(session()->has('id'))
                                     <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
                                     <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
                                     <li> <a href="{{ url('/tests') }}">Тесты</a></li>
@@ -100,11 +100,11 @@
         </div>
     </div><!-- end header inner -->
 
-    <div class="brand_color">
-        <div class="container">
+    <div class="brand_color" style="height: 150px">
+        <div class="container" style="height: 150px">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="titlepage">
+                    <div class="titlepage" style="margin-top: 40px">
 
                         <h2>@if(session()->has('page_caption'))
                                 <h2>{{ session('page_caption') }}</h2>
@@ -157,7 +157,7 @@
                 </div>
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
                     <div class="contact">
-                        <h3>Про *компания*</h3>
+                        <h3>Про WinLingo</h3>
                         <span>Мы предлагаем сервис онлайн изучения английского языка с 2020 года</span>
                     </div>
                 </div>

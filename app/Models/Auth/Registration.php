@@ -4,6 +4,7 @@ namespace App\Models\Auth;
 
 use App\Models\Language_level;
 use App\Models\Subscription_type;
+use App\Models\User;
 use App\Models\User_type;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,10 +18,10 @@ class Registration extends Model
 
     public static function validate(Request $request){
         $request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|max:255|unique:users,email|email:rfc,dns',
-            'password' => 'required|max:255',
-            'repeat-password' => 'required|max:255',
+            'name' => 'required|max:20',
+            'email' => 'required|max:30|unique:users,email|email:rfc,dns',
+            'password' => 'required|max:20',
+            'repeat-password' => 'required|max:20',
             'usertype' => 'required',
             'level' => 'required'
         ]);
@@ -41,15 +42,5 @@ class Registration extends Model
             'level' => $level_id,
             'subscriptionType' => $subscription_id
         ]);
-    }
-
-    public static function insertAllIntoSession(Request $request)
-    {
-        $request->session()->put('name', $request->input('name'));
-        $request->session()->put('email', $request->input('email'));
-        $request->session()->put('password', $request->input('password'));
-        $request->session()->put('usertype', User_type::findByDescription($request->input('usertype')));
-        $request->session()->put('level', Language_level::findByDescription($request->input('level')));
-        $request->session()->put('subscriptionType', Subscription_type::findByDescription('none'));
     }
 }

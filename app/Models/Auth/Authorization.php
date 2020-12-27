@@ -14,8 +14,8 @@ class Authorization extends Model
     public static function validate(Request $request)
     {
         $request->validate([
-            'email' => 'required|max:255|email:rfc,dns',
-            'password' => 'required|max:255',
+            'email' => 'required|max:30|email:rfc,dns',
+            'password' => 'required|max:20',
         ]);
     }
 
@@ -25,23 +25,13 @@ class Authorization extends Model
         if ($user == null || $user->password != $request->input('password')) {
             return false;
         }
-        self::insertAllIntoSession($user, $request);
+        $request->session()->put('id', $user->id);
         return true;
-    }
-
-    private static function insertAllIntoSession($user, Request $request)
-    {
-        $request->session()->put('name', $user->name);
-        $request->session()->put('email', $user->email);
-        $request->session()->put('password', $user->password);
-        $request->session()->put('usertype', $user->usertype);
-        $request->session()->put('level', $user->level);
-        $request->session()->put('subscriptionType', $user->subscriptionType);
     }
 
     public static function is_authenticated(Request $request)
     {
-        if ($request->session()->has('email')) return true;
+        if ($request->session()->has('id')) return true;
         return false;
     }
 }

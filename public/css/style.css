@@ -11,8 +11,8 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 
 /*****----------------------------------------
-     1) font-family: 'Rajdhani', sans-serif;  
-     2) font-family: 'Poppins', sans-serif; 
+     1) font-family: 'Rajdhani', sans-serif;
+     2) font-family: 'Poppins', sans-serif;
 ----------------------------------------*****/
 
 
@@ -1639,7 +1639,7 @@ input[type="radio"] .styled:checked+label::after {
 
 
 /*---------------------------------------------------------------------
-    layout new css 
+    layout new css
 ---------------------------------------------------------------------*/
 
 
@@ -1719,7 +1719,7 @@ font-size: 18px;
 .banner-main .carousel-caption p {
 	color: #050000;
     font-weight: 500;
-    	
+
     line-height: 23px;
 	 }
 .banner-main .carousel-caption a {
@@ -1806,7 +1806,7 @@ margin-top: 20px;
     line-height: 21px;
 	color: #070500;
 	padding: 25px 0px 15px 0px ;
-	display: inline-block; 
+	display: inline-block;
 }
 
 .choose_bg .white_bg .for_box p {
@@ -1840,6 +1840,7 @@ margin-top: 40px;
 .service {
 	background: #fff;
 	padding-top: 90px;
+    margin-bottom: 50px;
 }
 .service .service-box {
 	padding: 30px 20px;
@@ -1984,13 +1985,13 @@ margin-top: 20px;
 .img_bg i {float: left; display: flex; flex-wrap: wrap;}
 .img_bg i img {width: 149px; height: 149px;}
 .img_bg  span {color: #000; font-size: 28px; line-height: 28px; padding-left: 40px; padding-top: 41px;}
-.img_bg .date {font-weight: normal; font-size: 16px; } 
+.img_bg .date {font-weight: normal; font-size: 16px; }
 
 .carousel-indicators li {
     width: 25px;
     height: 25px;
     border-radius: 30px;
-} 
+}
 
 .carousel-indicators {right: inherit; margin-left: 7px;}
 
@@ -2001,23 +2002,23 @@ margin-top: 20px;
 	background: #0c0505;
 }
 
-.yellow_bg {background: #ffc221; 
-	padding: 40px 30px; 
+.yellow_bg {background: #ffc221;
+	padding: 40px 30px;
 	margin-top: 100px;
 }
 
 .yellow_bg .yellow-box h3 {
-	color: #fff; 
-	font-size: 31px; 
-	font-weight: bold; 
-	display: inline-block; 
+	color: #fff;
+	font-size: 31px;
+	font-weight: bold;
+	display: inline-block;
 	padding-bottom: 6px;
 }
 .yellow_bg .yellow-box i {padding-bottom: 10px; padding-left: 15px;	}
 .yellow_bg .yellow-box p {
 
-	font-size: 22px; 
-	line-height: 28px; 
+	font-size: 22px;
+	line-height: 28px;
 	color: #010101;
 }
 .yellow_bg .yellow-box a {
@@ -2175,9 +2176,9 @@ text-align: center;
 
 .contact .main_form {
      background: #fff;
-   
+
     padding: 40px;
-} 
+}
 
 .form-control {
      border: #ffc221 solid 2px;
@@ -2198,7 +2199,7 @@ text-align: center;
      padding: 13px 20px;
      width: 100%;
      padding-top: 40px;
-} 
+}
 
 .send {
      font-family: poppins;

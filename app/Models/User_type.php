@@ -21,4 +21,15 @@ class User_type extends Model
     {
         return DB::table('user_types')->where('description', '!=', 'admin')->get();
     }
+
+    public static function findDescriptionById($id)
+    {
+        return DB::table('user_types')->where('id', '=', $id)->first()->description;
+    }
+
+    public static function isUserIsSetType($id, $description)
+    {
+        $desc = self::findDescriptionById($id);
+        return $desc == $description;
+    }
 }

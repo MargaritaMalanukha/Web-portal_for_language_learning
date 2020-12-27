@@ -17,4 +17,9 @@ class Language_level extends Model
     {
         return DB::table('language_levels')->where('description', '=', $description)->first()->id;
     }
+
+    public static function findDescriptionById($id)
+    {
+        return DB::table('language_levels')->where('id', '=', $id)->first()->description;
+    }
 }

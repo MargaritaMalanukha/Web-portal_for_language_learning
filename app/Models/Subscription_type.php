@@ -15,4 +15,9 @@ class Subscription_type extends Model
     public static function findByDescription($description) {
         return DB::table('subscription_types')->where('description', '=', $description)->first()->id;
     }
+
+    public static function findDescriptionById($id)
+    {
+        return DB::table('subscription_types')->where('id', '=', $id)->first()->description;
+    }
 }
