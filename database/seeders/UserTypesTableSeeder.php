@@ -15,13 +15,13 @@ class UserTypesTableSeeder extends Seeder
     public function run()
     {
         DB::table('user_types')->insert(
-            ['description' => 'common']
+            ['description' => 'common', 'descriptionRU' => 'обычный']
         );
         DB::table('user_types')->insert(
-            ['description' => 'native']
+            ['description' => 'native', 'descriptionRU' => 'нэйтив']
         );
         DB::table('user_types')->insert(
-            ['description' => 'admin']
+            ['description' => 'admin', 'descriptionRU' => 'админ']
         );
     }
 }

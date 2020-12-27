@@ -15,13 +15,13 @@ class SubscriptionTypesTableSeeder extends Seeder
     public function run()
     {
         DB::table('subscription_types')->insert(
-            ['description' => 'none', 'cost' => '0']
+            ['description' => 'none', 'cost' => '0', 'descriptionRU' => 'Без подписки']
         );
         DB::table('subscription_types')->insert(
-            ['description' => 'byYear', 'cost' => '1000']
+            ['description' => 'byYear', 'cost' => '1000', 'descriptionRU' => 'Годовая']
         );
         DB::table('subscription_types')->insert(
-            ['description' => 'byMonth', 'cost' => '150']
+            ['description' => 'byMonth', 'cost' => '150', 'descriptionRU' => 'Месячная']
         );
     }
 }

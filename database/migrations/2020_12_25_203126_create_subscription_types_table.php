@@ -16,6 +16,7 @@ class CreateSubscriptionTypesTable extends Migration
         Schema::create('subscription_types', function (Blueprint $table) {
             $table->id()->autoIncrement();
             $table->string('description')->unique();
+            $table->string('descriptionRU')->unique();
             $table->double('cost');
         });
     }
