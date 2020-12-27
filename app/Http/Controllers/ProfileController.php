@@ -10,7 +10,6 @@ use App\Models\User_type;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-//todo 1)оформление подписки
 class ProfileController extends Controller
 {
     public function index(Request $request) {
