@@ -32,7 +32,7 @@ class Registration extends Model
 
     public static function create(Request $request) {
         $subscription_id = Subscription_type::findByDescription('none');
-        $usertype_id = User_type::findByDescription($request->input('usertype'));
+        $usertype_id = User_type::findByDescriptionRU($request->input('usertype'));
         $level_id = Language_level::findByDescription($request->input('level'));
         DB::table('users')->insert([
             'name' => $request->input('name'),
