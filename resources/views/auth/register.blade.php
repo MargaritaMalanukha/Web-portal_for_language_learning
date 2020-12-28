@@ -24,14 +24,16 @@
                             </div>
 
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                                <select name="usertype" class="register-select" style="width: 300px; border: #ffc221 solid 2px; margin-bottom: 30px; height: 54px; padding-left: 20px">
+                                <select name="usertype" class="register-select" style="width: 400px; border: #ffc221 solid 2px; margin-bottom: 30px; height: 54px; padding-left: 20px">
+                                    <option value="">Выберите тип пользователя</option>
                                     @foreach($user_types as $user_type)
                                         <option value="{{ $user_type->descriptionRU }}">{{ $user_type->descriptionRU }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                                <select name="level" class="register-select" style="width: 300px; border: #ffc221 solid 2px; margin-bottom: 30px; height: 54px; margin-left: 50px; padding-left: 20px">
+                                <select name="level" class="register-select" style="width: 400px; border: #ffc221 solid 2px; margin-bottom: 30px; height: 54px; margin-left: 150px; padding-left: 20px">
+                                    <option value="">Выберите предполагаемый уровень языка</option>
                                     @foreach($levels as $level)
                                         <option value="{{ $level->description }}">{{ $level->description }}</option>
                                     @endforeach
