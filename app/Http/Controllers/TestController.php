@@ -27,9 +27,8 @@ class TestController extends Controller
         $startingLevel = Language_level::all()->where('numericValue', ($userLevel->numericValue)+1)->first();
         $choosedLevel = Language_level::all()->where('id', $request->post('choosedLevelID'))->first();
 
-        TestGenerator::generateTest($startingLevel, $choosedLevel, 3);
-
-        return view('testing_subsystem.test_stage_2');
+        $questionArray = TestGenerator::generateTest($startingLevel, $choosedLevel, 3);
+        return view('testing_subsystem.test_stage_2')->with("questionArray", $questionArray);
     }
 
     public function test_stage_3(){
