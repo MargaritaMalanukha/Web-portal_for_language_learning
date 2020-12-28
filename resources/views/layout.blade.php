@@ -67,7 +67,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                     <div class="full">
                         <div class="center-desk">
-                            <div class="logo"> <a href="{{ url('/home') }}"><img src="{{ asset('images/logo.svg') }}" alt="logo"/></a> </div>
+                            <div class="logo"> <a href="{{ url('/home') }}"><img src="{{ asset('images/logo-1.svg') }}" alt="logo"/></a> </div>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                     <div class="menu-area">
                         <div class="limit-box">
                             <nav class="main-menu">
-                                <ul class="menu-area-main">
+                                <ul class="menu-area-main" style="margin-top: -10px">
                                     @if(session()->has('id'))
                                     <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
                                     <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
