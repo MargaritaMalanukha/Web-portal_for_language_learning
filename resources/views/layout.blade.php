@@ -100,6 +100,7 @@
         </div>
     </div><!-- end header inner -->
 
+    @if (explode('/', url()->current())[3] != 'home')
     <div class="brand_color" style="height: 150px">
         <div class="container" style="height: 150px">
             <div class="row">
@@ -118,6 +119,7 @@
             </div>
         </div>
     </div>
+    @endif
 </header>
 <!-- end header -->
 @yield('content')
