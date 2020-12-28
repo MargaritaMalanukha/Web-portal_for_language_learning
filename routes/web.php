@@ -30,7 +30,7 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@logout');
  */
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
-Route::get('/rooms', 'App\Http\Controllers\RoomController@index');
+Route::resource('/rooms', 'App\Http\Controllers\RoomController');
 Route::get('/tests', 'App\Http\Controllers\TestController@test_stage_1');
 Route::get('/profile', 'App\Http\Controllers\ProfileController@index');
 
