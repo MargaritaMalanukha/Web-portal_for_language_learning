@@ -43,7 +43,7 @@ html {
 body {
 	color: #666666;
 	font-size: 14px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Comfortaa', cursive;;
 	line-height: 1.80857;
 	font-weight: normal;
 	overflow-x: hidden;
@@ -2407,4 +2407,20 @@ text-align: center;
     font-size: 28px;
     line-height: 28px;
     margin-top: 20px;
+}
+
+.testBereza {
+    background: #F9F4EA;
+    padding: 10px;
+    border: 1px solid #F6C34B;
+    border-radius: 1px;
+}
+.parentBereza{
+    background: #F9F4EA; /* Цвет фона */
+    padding: 1px; /* Поля вокруг текста */
+    margin-top:15px;
+    margin-bottom:35px;
+    width: 100%;
+    border-radius: 1px;
+    box-shadow: 5px 5px 10px 1px #4e555b;
 }

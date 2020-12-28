@@ -6,6 +6,8 @@ return [
     'register' => 'Регистрация',
     'rooms' => 'Комнаты',
     'tests' => 'Тесты',
+    'test_stage_2' => 'Второй Этап',
+    'test_stage_3' => 'Результаты',
     'profile' => 'Профиль',
     'edit_name' => 'Редактировать имя',
     'edit_email_password' => 'Редактировать почту и пароль',
