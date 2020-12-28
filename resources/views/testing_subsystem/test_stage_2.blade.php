@@ -6,9 +6,10 @@
         <div style="padding: 50px">
             <div class="title_WithNoAfterPseudo">
                 <h2>Прохождение теста</h2>
+                <h3><strong class="black">Дайте ответы на предложенные вопросы</strong></h3>
             </div>
             <div class="">
-                <form action="{{url('/test_stage_3')}}" method="post">
+                <form action="{{url('/test_stage_3')}}" method="get">
                     @csrf
                     @foreach($questionArray as $question)
                         <div style="margin: 20px; margin-left: 100px">
