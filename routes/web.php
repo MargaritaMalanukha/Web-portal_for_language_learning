@@ -30,8 +30,9 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@logout');
  */
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
+Route::post('/home', 'App\Http\Controllers\HomeController@index');
 Route::get('/rooms', 'App\Http\Controllers\RoomController@index');
-Route::get('/tests', 'App\Http\Controllers\TestController@index');
+Route::get('/tests', 'App\Http\Controllers\TestController@test_stage_1');
 Route::get('/profile', 'App\Http\Controllers\ProfileController@index');
 
 /*
@@ -44,3 +45,11 @@ Route::get('/profile/edit_email_password', 'App\Http\Controllers\ProfileControll
 Route::post('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@update_email_password');
 Route::get('/profile/premium', 'App\Http\Controllers\ProfileController@premium');
 Route::post('/profile/premium/{subscriptionType?}', ['as' => '/profile/premium', 'uses' => 'App\Http\Controllers\ProfileController@update_premium']);
+
+/*
+ * Testing stage routes.
+ */
+
+Route::post('/test_stage_1', 'App\Http\Controllers\TestController@test_stage_1');
+Route::post('/test_stage_2', 'App\Http\Controllers\TestController@test_stage_2');
+Route::post('/test_stage_3', 'App\Http\Controllers\TestController@test_stage_3');
