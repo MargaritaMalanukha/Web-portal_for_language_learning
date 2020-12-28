@@ -104,14 +104,14 @@
         <div class="container" style="height: 150px">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="titlepage" style="margin-top: 40px">
+                    <div class="titlepage" style="margin-top: 45px">
 
-                        <h2>@if(session()->has('page_caption'))
-                                <h2>{{ session('page_caption') }}</h2>
-                            @else
-                                <h2>About</h2>
-                            @endif
-                        </h2>
+                       <h2><?php
+                            $url = url()->current();
+                            $arr = explode('/', $url);
+                            $param = 'messages.' . array_pop($arr);
+                            echo __($param);
+                            ?></h2>
 
                     </div>
                 </div>

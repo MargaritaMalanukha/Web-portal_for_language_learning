@@ -88,14 +88,9 @@ class ProfileController extends Controller
     public static function premium(Request $request) {
         if (!Authorization::is_authenticated($request)) return redirect('/login');
 
-        $user = User::findById($request->session()->get('id'));
-        $is_user = User_type::isUserIsSetType($user->usertype, 'common');
         $subscription_types = Subscription_type::all();
-
         return view('profile.premium')
-            ->with('is_user', $is_user)
-            ->with('subscriptions', $subscription_types)
-            ->with('creditCardNum', $user->creditCardNum);
+            ->with('subscriptions', $subscription_types);
     }
 
     public static function updatePremium(Request $request, $description) {
@@ -107,6 +102,13 @@ class ProfileController extends Controller
         User::updateSubscriptionType($subscription_id, $user->id);
 
         return view('profile.subscription_changed');
+    }
+
+    public static function show_card(Request $request) {
+        if (!Authorization::is_authenticated($request)) return redirect('/login');
+        $user = User::findById($request->session()->get('id'));
+        return view('profile.edit_card')
+            ->with('creditCardNum', $user->creditCardNum);
     }
 
     public static function changeCreditCard(Request $request) {

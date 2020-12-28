@@ -43,5 +43,6 @@ Route::post('/profile/edit_name', 'App\Http\Controllers\ProfileController@update
 Route::get('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@edit_email_password');
 Route::post('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@update_email_password');
 Route::get('/profile/premium', 'App\Http\Controllers\ProfileController@premium');
-Route::post('/profile/premium', 'App\Http\Controllers\ProfileController@changeCreditCard');
+Route::get('/profile/edit_card', 'App\Http\Controllers\ProfileController@show_card');
+Route::post('/profile/edit_card', 'App\Http\Controllers\ProfileController@changeCreditCard');
 Route::get('/profile/premium/{description}', 'App\Http\Controllers\ProfileController@updatePremium');
