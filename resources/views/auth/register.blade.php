@@ -23,15 +23,15 @@
                                 <input class="form-control" placeholder="Повторите пароль" type="text" name="repeat-password">
                             </div>
 
-                            <div class="col-md-12">
-                                <select name="usertype">
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                <select name="usertype" class="register-select">
                                     @foreach($user_types as $user_type)
                                         <option value="{{ $user_type->descriptionRU }}">{{ $user_type->descriptionRU }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-12">
-                                <select name="level">
+                            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                <select name="level" class="register-select">
                                     @foreach($levels as $level)
                                         <option value="{{ $level->description }}">{{ $level->description }}</option>
                                     @endforeach
