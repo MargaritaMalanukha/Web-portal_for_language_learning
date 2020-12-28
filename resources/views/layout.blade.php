@@ -107,13 +107,14 @@
                                         @endif
 
                                     @else
-                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                        <div class="button-wrapper" style="display: flex; justify-content: space-between">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                                 <li><a class="buy" href="{{ url('/login') }}">Войти</a></li>
                                             </div>
-                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                                 <li><a class="buy" href="{{ url('/register') }}">Регистрация</a></li>
                                             </div>
-
+                                        </div>
                                     @endif
                                 </ul>
                             </nav>
