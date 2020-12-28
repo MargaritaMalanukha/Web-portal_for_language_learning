@@ -40,7 +40,7 @@
                             <span>
                                 Желаемый уровень :
                                 <select style="border: 2px solid #ffc221;" size="1" name="choosedLevelID">
-                                        @foreach($availableLevels as $level)
+                                    @foreach($availableLevels as $level)
                                         <option value="{{$level['id']}}">{{$level['description']}}</option>
                                     @endforeach
                                 </select>
