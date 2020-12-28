@@ -13,8 +13,8 @@
         }
         #app {
             display: grid;
-            grid-template-columns: repeat(auto-fill, 650px);
-            grid-auto-rows: 650px;
+            grid-template-columns: repeat(auto-fill, 800px);
+            grid-auto-rows: 800px;
         }
     </style>
 </head>

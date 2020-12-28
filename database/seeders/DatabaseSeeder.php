@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
         $this->call(LanguageLevelsTableSeeder::class);
         $this->call(TopicsTableSeeder::class);
         $this->call(TestQuestionsTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(RoomsTableSeeder::class);
+        $this->call(ParticipantsTableSeeder::class);
         // \App\Models\User::factory(10)->create();
     }
 }

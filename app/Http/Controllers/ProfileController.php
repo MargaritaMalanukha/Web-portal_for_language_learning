@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Auth\Authorization;
 use App\Models\Language_level;
+use App\Models\Participant;
 use App\Models\Subscription_type;
 use App\Models\User;
 use App\Models\User_type;
@@ -22,13 +23,15 @@ class ProfileController extends Controller
         $is_native = User_type::isUserIsSetType($user->usertype, 'native');
         $subscriptionType = Subscription_type::findDescriptionRUById($user->subscriptionType);
         $creditCardNum = ($user->creditCardNum == null) ? 'none' : User::reduceCreditCardNum($user->creditCardNum);
+        $attends = Participant::getByUserId($user->id);
         return view('profile.profile')
             ->with('email', $email)
             ->with('level', $level)
             ->with('is_native', $is_native)
             ->with('subscriptionType', $subscriptionType)
             ->with('user', $user)
-            ->with('creditCardNum', $creditCardNum);
+            ->with('creditCardNum', $creditCardNum)
+            ->with('attends', $attends);
     }
 
     public function edit_name(Request $request) {
