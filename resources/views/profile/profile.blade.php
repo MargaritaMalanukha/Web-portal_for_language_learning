@@ -45,7 +45,7 @@
                     </div>
                 </a>
                 @if($is_native)
-                    <a href="{{ url('/profile/premium') }}" class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                    <a href="{{ url('/profile/edit_card') }}" class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="service-box">
                             <i><img src="{{asset('icon/credit-card.svg')}}"/></i>
                             <h3>Номер карты: {{ $creditCardNum }}</h3>

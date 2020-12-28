@@ -67,7 +67,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
                     <div class="full">
                         <div class="center-desk">
-                            <div class="logo"> <a href="{{ url('/home') }}"><img src="{{ asset('images/logo.svg') }}" alt="logo"/></a> </div>
+                            <div class="logo"> <a href="{{ url('/home') }}"><img src="{{ asset('images/logo-1.svg') }}" alt="logo"/></a> </div>
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                     <div class="menu-area">
                         <div class="limit-box">
                             <nav class="main-menu">
-                                <ul class="menu-area-main">
+                                <ul class="menu-area-main" style="margin-top: -10px">
                                     @if(session()->has('id'))
                                     <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
                                     <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
@@ -100,24 +100,26 @@
         </div>
     </div><!-- end header inner -->
 
+    @if (explode('/', url()->current())[3] != 'home')
     <div class="brand_color" style="height: 150px">
         <div class="container" style="height: 150px">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="titlepage" style="margin-top: 40px">
+                    <div class="titlepage" style="margin-top: 45px">
 
-                        <h2>@if(session()->has('page_caption'))
-                                <h2>{{ session('page_caption') }}</h2>
-                            @else
-                                <h2>About</h2>
-                            @endif
-                        </h2>
+                       <h2><?php
+                            $url = url()->current();
+                            $arr = explode('/', $url);
+                            $param = 'messages.' . array_pop($arr);
+                            echo __($param);
+                            ?></h2>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endif
 </header>
 <!-- end header -->
 @yield('content')

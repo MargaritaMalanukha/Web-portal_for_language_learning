@@ -10,7 +10,6 @@ use App\Models\User_type;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
-//todo 1)оформление подписки
 class ProfileController extends Controller
 {
     public function index(Request $request) {
@@ -21,7 +20,7 @@ class ProfileController extends Controller
         $email = User::reduceEmail($user->email);
         $level = Language_level::findDescriptionById($user->level);
         $is_native = User_type::isUserIsSetType($user->usertype, 'native');
-        $subscriptionType = Subscription_type::findDescriptionById($user->subscriptionType);
+        $subscriptionType = Subscription_type::findDescriptionRUById($user->subscriptionType);
         $creditCardNum = ($user->creditCardNum == null) ? 'none' : User::reduceCreditCardNum($user->creditCardNum);
         return view('profile.profile')
             ->with('email', $email)
@@ -89,17 +88,34 @@ class ProfileController extends Controller
     public static function premium(Request $request) {
         if (!Authorization::is_authenticated($request)) return redirect('/login');
 
-        $user = User::findById($request->session()->get('id'));
-        $is_user = User_type::isUserIsSetType($user->usertype, 'common');
         $subscription_types = Subscription_type::all();
-
         return view('profile.premium')
-            ->with('is_user', $is_user)
-            ->with('subscriptions', $subscription_types)
+            ->with('subscriptions', $subscription_types);
+    }
+
+    public static function updatePremium(Request $request, $description) {
+        if (!Authorization::is_authenticated($request)) return redirect('/login');
+
+        $user = User::findById($request->session()->get('id'));
+
+        $subscription_id = Subscription_type::findByDescription($description);
+        User::updateSubscriptionType($subscription_id, $user->id);
+
+        return view('profile.subscription_changed');
+    }
+
+    public static function show_card(Request $request) {
+        if (!Authorization::is_authenticated($request)) return redirect('/login');
+        $user = User::findById($request->session()->get('id'));
+        return view('profile.edit_card')
             ->with('creditCardNum', $user->creditCardNum);
     }
 
-    public static function update_premium(Request $request) {
-        return redirect('/home');
+    public static function changeCreditCard(Request $request) {
+        $request->validate([
+            'creditCardNum' => 'required|numeric|digits:16'
+        ]);
+        User::updateCreditCardNum($request->session()->get('id'), $request->input('creditCardNum'));
+        return redirect('/profile');
     }
 }

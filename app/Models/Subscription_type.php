@@ -10,7 +10,7 @@ class Subscription_type extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'description', 'cost'];
+    protected $fillable = ['id', 'description', 'descriptionRU', 'cost'];
 
     public static function findByDescription($description) {
         return DB::table('subscription_types')->where('description', '=', $description)->first()->id;
@@ -19,5 +19,14 @@ class Subscription_type extends Model
     public static function findDescriptionById($id)
     {
         return DB::table('subscription_types')->where('id', '=', $id)->first()->description;
+    }
+
+    public static function findDescriptionRUById($id)
+    {
+        return DB::table('subscription_types')->where('id', '=', $id)->first()->descriptionRU;
+    }
+
+    public static function findById($id) {
+        return DB::table('subscription_types')->where('id', '=', $id)->first();
     }
 }

@@ -30,7 +30,6 @@ Route::get('/logout', 'App\Http\Controllers\Auth\AuthController@logout');
  */
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
-Route::post('/home', 'App\Http\Controllers\HomeController@index');
 Route::get('/rooms', 'App\Http\Controllers\RoomController@index');
 Route::get('/tests', 'App\Http\Controllers\TestController@test_stage_1');
 Route::get('/profile', 'App\Http\Controllers\ProfileController@index');
@@ -44,7 +43,9 @@ Route::post('/profile/edit_name', 'App\Http\Controllers\ProfileController@update
 Route::get('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@edit_email_password');
 Route::post('/profile/edit_email_password', 'App\Http\Controllers\ProfileController@update_email_password');
 Route::get('/profile/premium', 'App\Http\Controllers\ProfileController@premium');
-Route::post('/profile/premium/{subscriptionType?}', ['as' => '/profile/premium', 'uses' => 'App\Http\Controllers\ProfileController@update_premium']);
+Route::get('/profile/edit_card', 'App\Http\Controllers\ProfileController@show_card');
+Route::post('/profile/edit_card', 'App\Http\Controllers\ProfileController@changeCreditCard');
+Route::get('/profile/premium/{description}', 'App\Http\Controllers\ProfileController@updatePremium');
 
 /*
  * Testing stage routes.
@@ -53,3 +54,4 @@ Route::post('/profile/premium/{subscriptionType?}', ['as' => '/profile/premium',
 Route::post('/test_stage_1', 'App\Http\Controllers\TestController@test_stage_1');
 Route::post('/test_stage_2', 'App\Http\Controllers\TestController@test_stage_2');
 Route::post('/test_stage_3', 'App\Http\Controllers\TestController@test_stage_3');
+Route::post('/home', 'App\Http\Controllers\HomeController@index');
