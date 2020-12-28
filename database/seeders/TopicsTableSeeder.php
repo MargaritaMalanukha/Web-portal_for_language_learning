@@ -32,5 +32,24 @@ class TopicsTableSeeder extends Seeder
         DB::table('topics')->insert(
             ['description' => 'FutureTenses', 'relatedLevel' => '4']
         );
+
+        DB::table('topics')->insert(
+            ['description' => 'GreatBritainHistoryEvents', 'relatedLevel'=> '6']
+        );
+        DB::table('topics')->insert(
+            ['description' => 'FutureSimpleInThePast', 'relatedLevel' => '5']
+        );
+        DB::table('topics')->insert(
+            ['description' => 'Conditionals', 'relatedLevel' => '4']
+        );
+        DB::table('topics')->insert(
+            ['description' => 'Weather', 'relatedLevel' => '3']
+        );
+        DB::table('topics')->insert(
+            ['description' => 'PastPerfectContinuous', 'relatedLevel' => '5']
+        );
+        DB::table('topics')->insert(
+            ['description' => 'GreatBritainCulture', 'relatedLevel' => '6']
+        );
     }
 }

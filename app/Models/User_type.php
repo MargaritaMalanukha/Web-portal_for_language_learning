@@ -17,6 +17,11 @@ class User_type extends Model
         return DB::table('user_types')->where('description', '=', $description)->first()->id;
     }
 
+    public static function findByDescriptionRU($description)
+    {
+        return DB::table('user_types')->where('descriptionRU', '=', $description)->first()->id;
+    }
+
     public static function allWithoutAdmin()
     {
         return DB::table('user_types')->where('description', '!=', 'admin')->get();

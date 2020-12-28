@@ -39,7 +39,7 @@
                             <h2>Ваш текущий языковой уровень <strong class="black">{{$userLevel->description}}</strong></h2>
                             <span>
                                 Желаемый уровень :
-                                <select style="border: 2px solid #ffc221;" size="1" name="choosedLevel">
+                                <select style="border: 2px solid #ffc221;" size="1" name="choosedLevelID">
                                         @foreach($availableLevels as $level)
                                         <option value="{{$level['id']}}">{{$level['description']}}</option>
                                     @endforeach

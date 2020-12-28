@@ -25,6 +25,9 @@
     <!-- Tweaks for older IEs-->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -77,19 +80,41 @@
                             <nav class="main-menu">
                                 <ul class="menu-area-main" style="margin-top: -10px">
                                     @if(session()->has('id'))
-                                    <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
-                                    <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
-                                    <li> <a href="{{ url('/tests') }}">Тесты</a></li>
-                                    <li> <a href="{{ url('/profile') }}">Профиль</a> </li>
-                                    <li> <a href="{{ url('/logout') }}">Выйти</a> </li>
+                                        @if(explode('/', url()->current())[3] == 'home')
+                                            <li class="active"> <a href={{ url('/home') }}>Главная</a> </li>
+                                            <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
+                                            <li> <a href="{{ url('/tests') }}">Тесты</a></li>
+                                            <li> <a href="{{ url('/profile') }}">Профиль</a> </li>
+                                            <li> <a href="{{ url('/logout') }}">Выйти</a> </li>
+                                        @elseif(explode('/', url()->current())[3] == 'rooms')
+                                            <li> <a href={{ url('/home') }}>Главная</a> </li>
+                                            <li class="active"> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
+                                            <li> <a href="{{ url('/tests') }}">Тесты</a></li>
+                                            <li> <a href="{{ url('/profile') }}">Профиль</a> </li>
+                                            <li> <a href="{{ url('/logout') }}">Выйти</a> </li>
+                                        @elseif(explode('/', url()->current())[3] == 'tests')
+                                            <li> <a href={{ url('/home') }}>Главная</a> </li>
+                                            <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
+                                            <li class="active"> <a href="{{ url('/tests') }}">Тесты</a></li>
+                                            <li> <a href="{{ url('/profile') }}">Профиль</a> </li>
+                                            <li> <a href="{{ url('/logout') }}">Выйти</a> </li>
+                                        @elseif(explode('/', url()->current())[3] == 'profile')
+                                            <li> <a href={{ url('/home') }}>Главная</a> </li>
+                                            <li> <a href="{{ url('/rooms') }}">Комнаты</a> </li>
+                                            <li> <a href="{{ url('/tests') }}">Тесты</a></li>
+                                            <li class="active"> <a href="{{ url('/profile') }}">Профиль</a> </li>
+                                            <li> <a href="{{ url('/logout') }}">Выйти</a> </li>
+                                        @endif
+
                                     @else
-                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                        <div class="button-wrapper" style="display: flex; justify-content: space-between">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                                 <li><a class="buy" href="{{ url('/login') }}">Войти</a></li>
                                             </div>
-                                            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
                                                 <li><a class="buy" href="{{ url('/register') }}">Регистрация</a></li>
                                             </div>
-
+                                        </div>
                                     @endif
                                 </ul>
                             </nav>

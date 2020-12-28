@@ -19,7 +19,7 @@
                         <p>Нажмите для изменения адреса электронной почты и пароля.</p>
                     </div>
                 </a>
-                <a href="{{ url('/rooms') }}" class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <a href="{{ url('/tests') }}" class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                     <div class="service-box">
                         <i><img src="icon/service6.png"/></i>
                         <h3>Уровень английского: {{ $level }}</h3>
